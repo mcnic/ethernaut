@@ -1,1 +1,8 @@
 from first address send to second address amount 20_000_000 -> overfull uint 256 and on first acc will be balance 115792089237316195423570985008687907853269984665640564039457584007913109639956 
+
+require(balances[msg.sender] - _value >= 0); - always uint
+
+need use:
+require(balances[msg.sender] >= _value, "Not enough tokens!");
+
+or use SafeMath (Solidity < 0.8) and balances[msg.sender] = balances[msg.sender].sub(_value);
