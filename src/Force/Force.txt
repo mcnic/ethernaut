@@ -1,0 +1,1 @@
+method 'salfdestruct' put all contracts's balance to other address
