@@ -1,0 +1,2 @@
+deploy KingFacker with value > prize
+KingFacker is not able get value => game blocked :)
